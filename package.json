@@ -1,0 +1,25 @@
+{
+  "name": "blog-sitem",
+  "version": "1.0.0",
+  "description": "İlk blog sitem",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Blog",
+    "Blog",
+    "Sitem",
+    "İlk",
+    "Sitem"
+  ],
+  "author": "Esat Yılmaz",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-fileupload": "^1.1.1-alpha.3",
+    "mongoose": "^5.4.14",
+    "slugify": "^1.3.4"
+  }
+}
