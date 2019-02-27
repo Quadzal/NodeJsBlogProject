@@ -1,0 +1,43 @@
+<% include template %>
+        <div id="content-wrapper">
+            <div class="container-fluid">
+                
+                <form action="/admin/article/add" method="POST" enctype="multipart/form-data" class="col-12">
+                  <div class="form-group">
+                    <label for="header">Header</label>
+                    <input type="text" class="form-control" id="title" name="title">
+                  </div>
+                  <div class="form-group">
+                    <label for="content">Content</label>
+                    <textarea id="content" name="content"></textarea>
+                  </div>
+                  <div class="form-group">
+                      <input type="file" id="image" name="image">
+                      
+                    </div>
+                    <div class="form-row text-center">
+                        <div class="col-12">
+                            <button type="submit" class="btn btn-primary w-50 mt-3">Add Articles</button>
+                        </div>
+                     </div>
+                    <% if(typeof msg != "undefined" && msg=="Successfully Added Article") { %>
+                      <div class="p-3 mb-2 bg-success text-white text-center mt-3"><h4> <%= msg %> </h4></div>
+                    <% } else if(typeof msg != "undefined" && msg=="Dont Successfully Added Article") { %>
+                      <div class="p-3 mb-2 bg-danger text-white text-center mt-3"><h4> <%= msg %> </h4></div>
+                    <% } else if(typeof contentError != "undefined") { %>
+                      <div class="p-3 mb-2 bg-danger text-white text-center mt-3"><h4> <%= contentError %> </h4></div>
+                    <% } %>
+                   </div>
+                </form>
+              </div>
+            </div>
+          
+          <script src="/public/js/ckeditor/ckeditor.js">
+            
+          </script>
+          <script>
+            CKEDITOR.replace( 'content' )
+            
+          </script>
+</body>
+</html>
