@@ -1,0 +1,73 @@
+<% include navbarTemplate %>
+  <!-- Navigation -->
+  <title>Anasayfa -- Hoşgeldiniz</title>
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+      <!-- Blog Entries Column -->
+      <div class="col-md-8">
+
+        <h1 class="my-4">Articles
+          <small>Welcome to my blog</small>
+        </h1>
+        
+        <!-- Blog Post -->
+        <% if(articles != null) { %>
+          <% articles.forEach(article => { %> 
+            <div class="card mb-4">
+              <img class="card-img-top" src="/public/uploads/<%= article.title %>.png" width="200px" height="200px" alt="Card image cap">
+              <div class="card-body">
+                <h2 class="card-title text-secondary"><%= article.title %></h2>
+                <h3 class="card-text text-success"><%- article.content.slice(0,10) %> ... <a href="/blog/<%=article.slug_title%>" class="btn btn-primary">Read More &rarr;</a></h3>
+                
+              </div>
+              <div class="card-footer text-muted">
+                Posted on January 1, 2017 by
+                <a href="<%=article.slug_title%>"><%= article.author %></a>
+              </div>
+            </div>
+            
+          <% }); %> 
+          <nav aria-label="Page navigation example">
+            <ul class="pagination">
+              <% if(typeof paginate != "undefined") { %>
+                <% let page = 0; %>
+                <% while(page < paginate){%>
+                  <% page++; %>
+                  <li class="page-item"><a class="page-link" href="?page=<%= page %>"><%= page %></a></li>
+                <% } %>
+              <% } %>
+              
+            </ul>
+          </nav>
+    <% } else { %>
+        <div class="card mb-4">
+                <div class="card-body">
+                        <h2 class="card-title">Makale Bulunamadı!</h2>
+                </div>
+        </div>
+        <% } %>
+        </div>
+    
+    <!-- /.row -->
+    </div>
+  </div>
+  <!-- /.container -->
+  
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="/public/jquery/jquery.min.js"></script>
+  <script src="/public/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
